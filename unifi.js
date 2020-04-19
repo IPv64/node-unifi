@@ -44,17 +44,33 @@ var Controller = function(hostname, port)
   /**
    * Login to UniFi Controller - login()
    */
-  _self.login = function(username, password, cb)
+  _self.login = function(username, password, final)
   {
-    _self._request('/api/login', { username: username, password: password }, null, cb);
+    async.series([
+      function(cb) {
+        //We have to use a custom cookie jar for this request - otherwise the login will fail on Unifi
+        const j = request.jar()
+        request({ method: 'GET', followRedirect: false, uri: _self._baseurl + '/', jar: j }, (err, res, body) => {
+          if (res.statusCode == 200) {
+            _self._unifios = true
+          }
+          return cb()
+        });
+      },
+      function(cb) {
+        _self._request(_self._unifios ? '/api/auth/login' : '/api/login', {
+          username: username,
+          password: password
+        }, null, final);
+      }
+    ])
   };
-
   /**
    * Logout from UniFi Controller - logout()
    */
   _self.logout = function(cb)
   {
-    _self._request('/api/logout', {}, null, cb);
+    _self._request(_self._unifios ? '/api/auth/logout' : '/api/logout', {}, null, cb);
   };
 
   /**
