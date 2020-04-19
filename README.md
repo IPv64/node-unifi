@@ -1,6 +1,7 @@
 ![Logo](unifi.png)
 # node-unifi
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cf0b13b80a6e48b7a01871706642efc9)](https://app.codacy.com/manual/uwe.blais/node-unifi?utm_source=github.com&utm_medium=referral&utm_content=IPv64/node-unifi&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/IPv64/node-unifi.svg?branch=master)](https://travis-ci.org/IPv64/node-unifi)
 [![Code Climate](https://codeclimate.com/github/jens-maus/node-unifi/badges/gpa.svg)](https://codeclimate.com/github/jens-maus/node-unifi)
 [![NPM version](http://img.shields.io/npm/v/node-unifi.svg)](https://www.npmjs.com/package/node-unifi)
