@@ -654,7 +654,7 @@ var Controller = function(hostname, port)
    */
   _self.getSites = function(cb)
   {
-    _self._request('/api/self/sites', null, null, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/self/sites' : '/api/self/sites', null, null, cb);
   };
 
   /**
@@ -667,7 +667,7 @@ var Controller = function(hostname, port)
    */
   _self.getSitesStats = function(cb)
   {
-    _self._request('/api/stat/sites', null, null, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/stat/sites' : '/api/stat/sites', null, null, cb);
   };
 
   /**
