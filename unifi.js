@@ -95,7 +95,7 @@ var Controller = function(hostname, port)
     if(typeof(mbytes) !== 'undefined')  json.bytes = mbytes;
     if(typeof(ap_mac) !== 'undefined')  json.ap_mac = ap_mac;
 
-    _self._request('/api/s/<SITE>/cmd/stamgr', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/cmd/stamgr' : '/api/s/<SITE>/cmd/stamgr', json, sites, cb);
   };
 
   /**
@@ -109,7 +109,7 @@ var Controller = function(hostname, port)
   {
     var json = { cmd: 'unauthorize-guest', mac: mac.toLowerCase() };
 
-    _self._request('/api/s/<SITE>/cmd/stamgr', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/cmd/stamgr' : '/api/s/<SITE>/cmd/stamgr', json, sites, cb);
   };
 
   /**
@@ -123,7 +123,7 @@ var Controller = function(hostname, port)
   {
     var json = { cmd: 'kick-sta', mac: mac.toLowerCase() };
 
-    _self._request('/api/s/<SITE>/cmd/stamgr', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/cmd/stamgr' : '/api/s/<SITE>/cmd/stamgr', json, sites, cb);
   };
 
   /**
@@ -137,7 +137,7 @@ var Controller = function(hostname, port)
   {
     var json = { cmd: 'block-sta', mac: mac.toLowerCase() };
 
-    _self._request('/api/s/<SITE>/cmd/stamgr', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/cmd/stamgr' : '/api/s/<SITE>/cmd/stamgr', json, sites, cb);
   };
 
   /**
@@ -151,7 +151,7 @@ var Controller = function(hostname, port)
   {
     var json = { cmd: 'unblock-sta', mac: mac.toLowerCase() };
 
-    _self._request('/api/s/<SITE>/cmd/stamgr', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/cmd/stamgr' : '/api/s/<SITE>/cmd/stamgr', json, sites, cb);
   };
 
   /**
@@ -174,7 +174,7 @@ var Controller = function(hostname, port)
       noted = 0;
     }
 
-    _self._request('/api/s/<SITE>/upd/user/' + user_id.trim(), { note: note, noted: noted }, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/upd/user/' : '/api/s/<SITE>/upd/user/' + user_id.trim(), { note: note, noted: noted }, sites, cb);
   };
 
   /**
@@ -193,7 +193,7 @@ var Controller = function(hostname, port)
     if(typeof(name) === 'undefined')
       name = '';
 
-    _self._request('/api/s/<SITE>/upd/user/' + user_id.trim(), { name: name }, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/upd/user/' : '/api/s/<SITE>/upd/user/' + user_id.trim(), { name: name }, sites, cb);
   };
 
   /**
@@ -227,7 +227,7 @@ var Controller = function(hostname, port)
                 start: start,
                 end: end };
 
-    _self._request('/api/s/<SITE>/stat/report/daily.site', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/report/daily.site' : '/api/s/<SITE>/stat/report/daily.site', json, sites, cb);
   };
 
   /**
