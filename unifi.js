@@ -261,7 +261,7 @@ var Controller = function(hostname, port)
                  start: start,
                  end: end };
 
-    _self._request('/api/s/<SITE>/stat/report/hourly.site', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/report/hourly.site' : '/api/s/<SITE>/stat/report/hourly.site', json, sites, cb);
   };
 
   /**
@@ -290,7 +290,7 @@ var Controller = function(hostname, port)
                  start: start,
                  end: end };
 
-    _self._request('/api/s/<SITE>/stat/report/hourly.ap', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/report/hourly.ap' : '/api/s/<SITE>/stat/report/hourly.ap', json, sites, cb);
   };
 
   /**
@@ -319,7 +319,7 @@ var Controller = function(hostname, port)
                  start: start,
                  end: end };
 
-    _self._request('/api/s/<SITE>/stat/report/daily.ap', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/report/daily.ap' : '/api/s/<SITE>/stat/report/daily.ap', json, sites, cb);
   };
 
   /**
@@ -349,7 +349,7 @@ var Controller = function(hostname, port)
     if(typeof(mac) !== 'undefined')
       json.mac = mac.toLowerCase();
 
-    _self._request('/api/s/<SITE>/stat/session', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/session' : '/api/s/<SITE>/stat/session', json, sites, cb);
   };
 
   /**
@@ -370,7 +370,7 @@ var Controller = function(hostname, port)
                  _limit: limit,
                  _sort: '-assoc_time' };
 
-    _self._request('/api/s/<SITE>/stat/session', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/session' : '/api/s/<SITE>/stat/session', json, sites, cb);
   };
 
   /**
@@ -391,7 +391,7 @@ var Controller = function(hostname, port)
     if(typeof(start) === 'undefined')
       start = end - (7*24*3600);
 
-    _self._request('/api/s/<SITE>/stat/authorization', { start: start, end: end }, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/authorization' : '/api/s/<SITE>/stat/authorization', { start: start, end: end }, sites, cb);
   };
 
   /**
@@ -413,7 +413,7 @@ var Controller = function(hostname, port)
                  conn: 'all',
                  within: within };
 
-    _self._request('/api/s/<SITE>/stat/alluser', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/alluser' : '/api/s/<SITE>/stat/alluser', json, sites, cb);
   };
 
   /**
@@ -435,7 +435,7 @@ var Controller = function(hostname, port)
                  conn: 'all',
                  within: within };
 
-    _self._request('/api/s/<SITE>/stat/alluser', json, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/alluser' : '/api/s/<SITE>/stat/alluser', json, sites, cb);
   };
 
   /**
@@ -450,7 +450,7 @@ var Controller = function(hostname, port)
     if(typeof(within) === 'undefined')
       within = 8760;
 
-    _self._request('/api/s/<SITE>/stat/guest', { within: within }, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/guest' : '/api/s/<SITE>/stat/guest', { within: within }, sites, cb);
   };
 
   /**
@@ -466,7 +466,7 @@ var Controller = function(hostname, port)
     if(typeof(client_mac) === 'undefined')
       client_mac = '';
 
-    _self._request('/api/s/<SITE>/stat/sta/' + client_mac.trim().toLowerCase(), null, sites, cb);
+    _self._request(_self._unifios ? '/proxy/network/api/s/<SITE>/stat/sta/' + client_mac.trim().toLowerCase() : '/api/s/<SITE>/stat/sta/' + client_mac.trim().toLowerCase(), null, sites, cb);
   };
 
   /**
