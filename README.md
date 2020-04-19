@@ -7,12 +7,12 @@
 Node-UniFi is a NodeJS module that allows to query/control [UniFi devices](http://www.ubnt.com/) via the official UniFi-Controller API. It is developed to be compatible to the latest UniFi-Controller API version starting with v4.x.x/v5.x.x.
 
 ## Features
-  * Supports all UniFi-Controller API features introduced with v4.x.x and v5.x.x.
-  * Returns all data in JSON parsable strings/objects.
+* Supports all UniFi-Controller API features introduced with v4.x.x and v5.x.x.
+* Returns all data in JSON parsable strings/objects.
 
 ## Requirements
-  * Installed [UniFi-Controller](https://www.ubnt.com/download/unifi) version v4 or v5
-  * Working UniFi-device environment
+* Installed [UniFi-Controller](https://www.ubnt.com/download/unifi) version v4 or v5
+* Working UniFi-device environment
 
 ## Installation
 node-unifi can be installed using the following npm command:
@@ -73,13 +73,13 @@ Please note that with every `controller.XXXXX()` function a callback function ha
 ## References
 This nodejs package/class uses functionality/Know-How gathered from different third-party projects:
 
-  * [UniFi-API-browser](https://github.com/malle-pietje/UniFi-API-browser)
-  * [unifi_sh_api](https://dl.ubnt.com/unifi/5.4.9/unifi_sh_api)
+* [UniFi-API-browser](https://github.com/malle-pietje/UniFi-API-browser)
+* [unifi_sh_api](https://dl.ubnt.com/unifi/5.4.9/unifi_sh_api)
 
 ## Use-Cases
 The following projects are known to use this nodejs class for query/control UniFi devices:
 
-  * [ioBroker.unifi](https://github.com/jens-maus/ioBroker.unifi)
+* [ioBroker.unifi](https://github.com/IPv64/ioBroker.unifi)
 
 ## License
 The MIT License (MIT)
