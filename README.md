@@ -2,10 +2,7 @@
 # node-unifi
 
 [![Build Status](https://travis-ci.org/IPv64/node-unifi.svg?branch=master)](https://travis-ci.org/IPv64/node-unifi)
-[![Code Climate](https://codeclimate.com/github/jens-maus/node-unifi/badges/gpa.svg)](https://codeclimate.com/github/jens-maus/node-unifi)
-[![NPM version](http://img.shields.io/npm/v/node-unifi.svg)](https://www.npmjs.com/package/node-unifi)
-[![Downloads](https://img.shields.io/npm/dm/node-unifi.svg)](https://www.npmjs.com/package/node-unifi)
-[![Github Issues](http://githubbadges.herokuapp.com/jens-maus/node-unifi/issues.svg)](https://github.com/jens-maus/node-unifi/issues)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/14420786d0904212896568db7785d0ae)](https://www.codacy.com/manual/uwe.blais/node-unifi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=IPv64/node-unifi&amp;utm_campaign=Badge_Grade)
 
 
 Node-UniFi is a NodeJS module that allows to query/control [UniFi devices](http://www.ubnt.com/) via the official UniFi-Controller API. It is developed to be compatible to the latest UniFi-Controller API version starting with v4.x.x/v5.x.x.
