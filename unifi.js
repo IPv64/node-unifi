@@ -44,7 +44,7 @@ var Controller = function(hostname, port)
   /**
    * Login to UniFi Controller - login()
    */
-  _self.login = function(username, password, cb)
+  _self.login = function(username, password, final)
   {
     async.series([
       function(cb) {
@@ -61,7 +61,7 @@ var Controller = function(hostname, port)
         _self._request(_self._unifios ? '/api/auth/login' : '/api/login', {
           username: username,
           password: password
-        }, null, cb);
+        }, null, final);
       }
     ])
   };
@@ -1393,6 +1393,11 @@ var Controller = function(hostname, port)
    */
   _self._request = function(url, json, sites, cb, method)
   {
+    function getbaseurl() {
+      if (url.indexOf('login') > -1 || url.indexOf('logout') > -1 || !_self._unifios) return _self._baseurl;
+      return _self._baseurl + '/proxy/network'
+   }	  
+	  
     var proc_sites;
 
     if(sites === null)
@@ -1405,10 +1410,10 @@ var Controller = function(hostname, port)
     var count = 0;
     var results = [];
     async.whilst(
-      function() { return count < proc_sites.length; },
+      function(callback) { return callback(null, (count < proc_sites.length)) },
       function(callback) {
         var reqfunc;
-        var reqjson = {url: _self._baseurl + url.replace('<SITE>', proc_sites[count])};
+        var reqjson = {url: getbaseurl() + url.replace('<SITE>', proc_sites[count])};
         var req;
 
         // identify which request method we are using (GET, POST, DELETE) based
